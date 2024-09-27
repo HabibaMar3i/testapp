@@ -1,0 +1,48 @@
+<div class="container mt-5">
+  <h1 class="text-center mb-4">Home Component</h1>
+
+  <div class="row mb-4">
+    <div class="col-md-6">
+      <p><strong>Showing Name:</strong> {{ name }}</p>
+      <p><strong>Showing Age:</strong> {{ age }}</p>
+      <p><strong>Second Person:</strong> {{ persons[1] }}</p>
+      <p [class]="textClass">Testing Class</p>
+      <p [style.color]="textStyleColor">Testing Style</p>
+    </div>
+
+    <div class="col-md-6">
+      <img class="img-fluid" [src]="imageSrc" [alt]="name" />
+    </div>
+  </div>
+
+  <div class="text-center mb-4">
+    <button class="btn btn-primary" (click)="hello()">Click me for testing</button>
+  </div>
+
+  <h3>Persons List:</h3>
+  <ul class="list-group mb-4">
+    <li class="list-group-item" *ngFor="let person of persons">
+      {{ person }} - Test array for
+    </li>
+  </ul>
+
+  <p *ngIf="productPrice > 100; else wrongCondition" class="alert alert-success">
+    Condition is met
+  </p>
+  <ng-template #wrongCondition>
+    <p class="alert alert-danger">Condition is not met</p>
+  </ng-template>
+
+  <h4>Testing Object:</h4>
+  <p>{{ user[0].userName }}</p>
+
+  <h4>Testing Interface:</h4>
+  <p>{{ people.name }}</p>
+
+  <h4>Testing Separate Course Interface:</h4>
+  <p>{{ science.title }}</p>
+  <p><strong>Description:</strong> {{ science.description }}</p>
+  <input type="text" [(ngModel)]="task">
+  <p>Testing input: {{task}}</p>
+  <app-gallery [message]="parentMessage"></app-gallery>
+</div>
